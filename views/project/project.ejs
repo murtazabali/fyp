@@ -1,0 +1,154 @@
+<html>
+<head>
+    <title>VSO!</title>
+    <link rel="stylesheet" href="/build/xterm.css" />
+    <link rel="stylesheet" href="/build/addons/fullscreen/fullscreen.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/1.0.0/fetch.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
+    <!-- <script type="text/javascript" src="/build/editor.js"></script> -->
+    <script type="text/javascript" src="/build/tree/jquery.easyui.min.js"></script>
+    <script src="/build/package/dev/vs/loader.js"></script>
+    <script src ="/build/customeditor.js"></script>
+   <script type="text/javascript">
+       
+        // $(document).ready(function () {
+        //   $('.comp1').on('click', 'code', function () {
+        //     var $code = $(this);
+        //     var text = $code.html();
+        //     term.send(text + " \r");
+        //   });
+
+        // document.getElementsByClassName('comp1').addEventListener('click', function(){
+        //   var $code = $(this).children();
+        //   var text = $code.html();
+        //   term.send(text+" \r\n");
+        // });
+       
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+      <div class = "row">
+        <div class= "col-md-3">
+                
+                <ul id="tt" class="easyui-tree"></ul>
+              
+        </div>
+        <div class= "col-md-9">
+                <div class="row">
+                        <h4>Languages <span class="label label-default">Selection : </span></h4>
+                     
+                            
+                            <select class=" form-control language-picker "></select>
+                                        
+                </div>
+    
+                <div class="row"  >
+                    <span> <input type="button" class="btn btn-info" value="Compile" class="compile" onclick="compile()"></span>
+                       
+                        <span><input type="button" class="btn btn-info" value="Run" class="run" onclick="run()"></span>
+                        
+                </div>
+                
+    
+                <div id="container" style="margin:10px;width:800px;height:600px;"></div>
+    
+
+            </div>
+        
+            
+
+      </div> 
+        <div class="row">
+
+            <div class="col-md-9" >
+              
+                <div id="terminal-container"></div>
+            </div>
+        </div>
+     
+    </div>
+
+    <div style="background-color:#1B2E3C">
+        <div style="visibility:hidden; ">
+            <div>
+                <h2>Actions</h2>
+                <p>
+                    <label>Find next
+                        <input id="find-next" />
+                    </label>
+                    <label>Find previous
+                        <input id="find-previous" />
+                    </label>
+                </p>
+            </div>
+            <div>
+                <h2>Options</h2>
+                <p>
+                    <label>
+                        <input type="checkbox" id="option-cursor-blink"> cursorBlink</label>
+                </p>
+                <p>
+                    <label>
+                        cursorStyle
+                        <select id="option-cursor-style">
+                            <option value="block">block</option>
+                            <option value="underline">underline</option>
+                            <option value="bar">bar</option>
+                        </select>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        bellStyle
+                        <select id="option-bell-style">
+                            <option value="">none</option>
+                            <option value="sound">sound</option>
+                            <option value="visual">visual</option>
+                            <option value="both">both</option>
+                        </select>
+                    </label>
+                </p>
+                <p>
+                    <label>scrollback
+                        <input type="number" id="option-scrollback" value="1000" />
+                    </label>
+                </p>
+                <p>
+                    <label>tabStopWidth
+                        <input type="number" id="option-tabstopwidth" value="8" />
+                    </label>
+                </p>
+                <div>
+                    <h3>Size</h3>
+                    <div>
+                        <div style="display: inline-block; margin-right: 16px;">
+                            <label for="cols">Columns</label>
+                            <input type="number" id="cols" />
+                        </div>
+                        <div style="display: inline-block; margin-right: 16px;">
+                            <label for="rows">Rows</label>
+                            <input type="number" id="rows" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="dist/bundle.js" defer></script>
+    </div> 
+
+</body>
+
+</html>
